@@ -10,7 +10,7 @@ var serverConfig = {
 // ----------------------------------------------------------------------------------------
 
 // Create a server for handling websocket calls
-var wss = new WebSocket.Server({port: 8443});
+var wss = new WebSocket.Server({port: 8444});
 
 wss.on('connection', function(client) {
     client.on('message', function(message) {
