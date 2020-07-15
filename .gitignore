@@ -1,0 +1,9 @@
+node_modules
+storage
+javascripts/maps
+javascripts/spacedeck.js
+public/stylesheets/*.css
+database.sqlite
+*.swp
+*~
+
