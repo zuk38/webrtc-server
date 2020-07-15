@@ -1,5 +1,6 @@
 var fs = require('fs');
 var WebSocket = require('ws');
+var https = require('https');
 
 // Yes, SSL is required
 var serverConfig = {
@@ -7,10 +8,13 @@ var serverConfig = {
     cert: fs.readFileSync('cert.pem'),
 };
 
+var server = new https.createServer(serverConfig);
+
 // ----------------------------------------------------------------------------------------
 
 // Create a server for handling websocket calls
-var wss = new WebSocket.Server({port: 8444});
+var wss = new WebSocket.Server({ server });
+
 
 wss.on('connection', function(client) {
     client.on('message', function(message) {
@@ -31,6 +35,8 @@ wss.broadcast = function(data,exclude) {
     }
  
 };
+
+server.listen(8444);
 
 
 console.log('Server running.');

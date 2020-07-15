@@ -15,4 +15,4 @@ RUN npm install
 # start app
 
 CMD ["sh", "-c", "git pull; node server.js"]
-EXPOSE 9666
+EXPOSE 8444
