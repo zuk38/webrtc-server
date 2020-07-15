@@ -4,6 +4,7 @@ WORKDIR /app
 
 # clone webrtc-server repo
 
+RUN apk add git
 RUN git clone https://github.com/zuk38/webrtc-server.git
 RUN mv webrtc-server/* .
 RUN mv webrtc-server/.git .
