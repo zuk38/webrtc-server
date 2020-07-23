@@ -8,7 +8,10 @@ var serverConfig = {
     cert: fs.readFileSync('cert.pem'),
 };
 
-var server = new https.createServer(serverConfig);
+var server = new https.createServer(serverConfig,  function (req, res) {
+  res.writeHead(200);
+  res.end("OK!");
+});
 
 // ----------------------------------------------------------------------------------------
 
